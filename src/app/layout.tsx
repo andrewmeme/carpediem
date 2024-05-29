@@ -5,11 +5,8 @@ import "./globals.css";
 // Clerk Authentication
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
+import AppHeader from "@/components/header/AppHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,15 +23,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={inter.className}>
-          <header>
-            <SignedOut>          
-              <SignInButton />        
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
+        <body className={inter.className + "font-sans"}>
           {children}
         </body>
       </html>
