@@ -6,12 +6,8 @@ import HomeButton from "./HomeButton";
 function AppHeader() {
 
   return (
-    <header className="p-4 border-default-gray flex justify-between items-center">
-      
+    <header className="p-4 sticky top-0 bg-default-secondary flex justify-between items-center">
       <HomeButton />
-      <nav>
-      </nav>
-      
     </header>
   );
 }

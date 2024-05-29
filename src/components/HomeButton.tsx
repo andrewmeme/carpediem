@@ -4,7 +4,7 @@ import Link from "next/link";
 function HomeButton() {
   return (
     <Link 
-      className="text-2xl" 
+      className="text-2xl text-white" 
       href="/">
         Carpe Diem
     </Link>
