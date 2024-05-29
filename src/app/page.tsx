@@ -12,7 +12,7 @@ function Banner() {
         <h2 className="font-medium text-xl md:text-3xl">Make everyday meaningful with a limited time journal.</h2>
       </div>
       <div className="">
-        <Button text="Start Now" href="/sign-up"/>
+        <Button text="Start Now" href="/dashboard"/>
       </div>
     </section>
   );
