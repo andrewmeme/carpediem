@@ -1,5 +1,5 @@
-import AppHeader from "@/components/header/AppHeader";
-import Button from "@/components/Button";
+import AppHeader from "@/components/AppHeader";
+import Button from "@/components/ui/Button";
 import React from "react";
 
 function Banner() {
