@@ -21,6 +21,7 @@ const config: Config = {
           secondary: "#5a7d62",
           gray: "#5e6c93",
           black: "#1a1a20",
+          background: "#f2f2f2"
         }
       },
       fontFamily: {

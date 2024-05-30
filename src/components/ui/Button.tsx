@@ -11,7 +11,7 @@ interface ButtonProps {
 function Button({text="button", href}: ButtonProps ) {
   return (
     <Link
-      className={"p-4 bg-default-primary hover:bg-default-secondary rounded-lg text-lg md:text-xl font-medium shadow-md transition-colors "}
+      className={"p-2 bg-default-primary hover:bg-default-secondary rounded-lg text-lg md:text-xl font-medium shadow-md transition-colors "}
       href={href}
     >
       {text}
