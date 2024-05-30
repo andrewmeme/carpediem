@@ -28,7 +28,6 @@ function Post()
           <Link href="/Dashboard">&lt; Dashboard</Link>
         </nav>
         <section className="mt-2 flex flex-col flex-grow">
-          <h1 className="text-4xl">Write a New Entry</h1>
           <div className="flex flex-col flex-grow gap-y-8 items-stretch">
             <DatePicker 
               className="border-default-black border" 
