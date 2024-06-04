@@ -7,6 +7,7 @@ import dayjs, { Dayjs } from "dayjs";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import buttonClasses from "@/components/ui/ButtonClass";
+import { sql } from "@vercel/postgres";
 
 function SubHeading({text=""}) {
   return <h2 className="text-xl bg-white">{text}</h2>;
@@ -25,7 +26,7 @@ function Post()
       <AppHeader/>
       <div className="px-4 md:mx-64 flex flex-col flex-grow bg-white shadow-default-gray shadow-md">
         <nav className="mt-2">
-          <Link href="/Dashboard">&lt; Dashboard</Link>
+          <Link href="/dashboard">&lt; Dashboard</Link>
         </nav>
         <section className="mt-2 flex flex-col flex-grow">
           <div className="flex flex-col flex-grow gap-y-8 items-stretch">
