@@ -8,18 +8,43 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import buttonClasses from "@/components/ui/ButtonClass";
 import { sql } from "@vercel/postgres";
+import Button from "@/components/ui/Button";
 
 function SubHeading({text=""}) {
   return <h2 className="text-xl bg-white">{text}</h2>;
 }
 
-function Post()
-{
+function Post() {
+  const [sendLock, setSendLock] = useState(false);
   const [date, setDate] = useState<Dayjs | null>(dayjs());
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
 
-  console.log(`${date?.format("DD/MM/YY")}, ${title}, ${content}`);
+  console.log(`${date?.format("DD/MM/YYYY")}, ${title}, ${content}`);
+
+  const sendDataUsingApi = async () => {
+    setSendLock(true);
+    try {
+      const response = await fetch("/api/create-entry", {
+        headers:{
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify({
+          user_id: 1,
+          title: title,
+          date: date?.format("DD/MM/YYYY"),
+          content: content
+        })
+      });
+      console.log("sent entry to database");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setSendLock(false);
+    }
+  };
+
 
   return (
     <section className="h-svh flex flex-col">
@@ -48,16 +73,16 @@ function Post()
               maxLength={1200}
               placeholder=""
               value={content}
-              defaultValue={content}
               onChange={(e) => setContent(e.target.value)}
             />
+            {/* className={`p-2 mb-4 bg-default-primary hover:bg-default-secondary text-lg md:text-xl ${buttonClasses}`} */}
 
-            <Link
+            <button 
               className={`p-2 mb-4 bg-default-primary hover:bg-default-secondary text-lg md:text-xl ${buttonClasses}`}
-              href="/dashboard"
+              onClick={sendDataUsingApi}
             >
               Submit
-            </Link>
+            </button>
           </div>
         </section>
       </div>
