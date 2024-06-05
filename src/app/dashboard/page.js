@@ -6,7 +6,7 @@ import EntryCard from "@/components/EntryCard";
 
 function Entries() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [entries, setEntries] = useState<JSON | undefined>();
+  const [entries, setEntries] = useState<JSON | undefined>(undefined);
 
   useEffect(() => {
     const response = async() => {
