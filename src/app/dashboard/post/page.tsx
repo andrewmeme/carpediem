@@ -1,18 +1,12 @@
 "use client"
 
 import AppHeader from "@/components/AppHeader";
-import { TextField, TextareaAutosize } from "@mui/material";
+import { TextField } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import dayjs, { Dayjs } from "dayjs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import buttonClasses from "@/components/ui/ButtonClass";
-import { sql } from "@vercel/postgres";
-import Button from "@/components/ui/Button";
-
-function SubHeading({text=""}) {
-  return <h2 className="text-xl bg-white">{text}</h2>;
-}
 
 function Post() {
   const [sendLock, setSendLock] = useState(false);
@@ -45,7 +39,6 @@ function Post() {
     }
   };
 
-
   return (
     <section className="h-svh flex flex-col">
       <AppHeader/>
@@ -57,6 +50,10 @@ function Post() {
           <div className="flex flex-col flex-grow gap-y-8 items-stretch">
             <DatePicker 
               className="border-default-black border" 
+              sx={{
+                borderWidth: 1,
+                borderColor: "rgb(26,26,32)",
+              }}
               value={date} 
               defaultValue={date} 
               onChange={(newDate) => setDate(newDate)}
