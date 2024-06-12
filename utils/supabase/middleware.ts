@@ -54,7 +54,13 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  await supabase.auth.getUser()
+  const unrestrictedURL = request.nextUrl.pathname.startsWith("/login") &&
+    request.nextUrl.pathname.match("/");
 
-  return response
+  const { data: {user} } = await supabase.auth.getUser();
+  if (!user && !unrestrictedURL) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  return response;
 }

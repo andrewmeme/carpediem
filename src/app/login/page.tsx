@@ -1,3 +1,4 @@
+import SocialLogin from "@/components/ui/SocialLogin"
 import { login, signup, loginWithGoogle } from "./actions"
 
 export default function LoginPage() {
@@ -10,7 +11,7 @@ export default function LoginPage() {
         <input id="password" name="password" type="password" required />
         <button formAction={login}>Log in</button>
         <button formAction={signup}>Sign up</button>
-        <button formAction={loginWithGoogle}>Google Login</button>
+        <SocialLogin />
       </form>
     </div>
   )

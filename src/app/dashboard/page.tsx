@@ -13,13 +13,12 @@ async function DashBoard() {
   if (error || !data?.user) {
     redirect('/login')
   }
-  console.log(data);
 
   return (
     <div>
       <AppHeader/>
       <section className="mt-8 flex items-center justify-center">
-        <Button href="dashboard/post" text="New Entry"/>
+        {/* <Button href="dashboard/post" text="New Entry"/> */}
       </section>
       <section className="mt-8 px-4">
         <Entries />
